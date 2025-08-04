@@ -4,30 +4,34 @@ import React from 'react'
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+      <section className="h-screen snap-start bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center">
+        <div className="max-w-7xl mx-auto text-center px-4">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
             Kontakt
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-            Jsme tu pro vás. Kontaktujte nás kdykoliv budete potřebovat pomoc s vaším vozidlem.
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Jsme tu pro vás. Kontaktujte nás kdykoliv budete potřebovat pomoc s vaším vozidlem. 
+            Naše tým je připraven odpovědět na všechny vaše otázky.
           </p>
+          <div className="mt-12">
+            <button className="bg-primary hover:bg-primary/80 text-white font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300">
+              Zavolejte Nám
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Napište nám
-              </h2>
-              <form className="space-y-6">
+      {/* Contact Form Section */}
+      <section className="h-screen snap-start bg-white flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
+            Napište nám
+          </h2>
+          <div className="max-w-2xl mx-auto">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Jméno a příjmení
@@ -53,117 +57,126 @@ export default function ContactPage() {
                     placeholder="vas@email.cz"
                   />
                 </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Telefon
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    placeholder="+420 123 456 789"
-                  />
+              </div>
+              
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Telefon
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  placeholder="+420 123 456 789"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Zpráva
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  placeholder="Napište nám vaši zprávu..."
+                ></textarea>
+              </div>
+              
+              <button
+                type="submit"
+                className="w-full bg-primary hover:bg-red-700 text-white font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300"
+              >
+                Odeslat Zprávu
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className="h-screen snap-start bg-gray-50 flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
+            Kontaktní Informace
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* Address */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
                 </div>
-                
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Zpráva
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                    placeholder="Napište nám vaši zprávu..."
-                  ></textarea>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Adresa</h3>
+                  <p className="text-gray-600 text-lg">
+                    AutoNam s.r.o.<br />
+                    Václavská 123<br />
+                    110 00 Praha 1<br />
+                    Česká republika
+                  </p>
                 </div>
-                
-                <button
-                  type="submit"
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300"
-                >
-                  Odeslat Zprávu
-                </button>
-              </form>
+              </div>
             </div>
 
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                Kontaktní Informace
-              </h2>
-              <div className="space-y-8">
-                
-                {/* Address */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Adresa</h3>
-                    <p className="text-gray-600">
-                      AutoNam s.r.o.<br />
-                      Václavská 123<br />
-                      110 00 Praha 1<br />
-                      Česká republika
-                    </p>
-                  </div>
+            {/* Phone */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
                 </div>
-
-                {/* Phone */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Telefon</h3>
-                    <p className="text-gray-600">
-                      +420 123 456 789<br />
-                      +420 987 654 321
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Telefon</h3>
+                  <p className="text-gray-600 text-lg">
+                    +420 123 456 789<br />
+                    +420 987 654 321
+                  </p>
                 </div>
+              </div>
+            </div>
 
-                {/* Email */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
-                    <p className="text-gray-600">
-                      info@autonam.cz<br />
-                      servis@autonam.cz
-                    </p>
-                  </div>
+            {/* Email */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                 </div>
-
-                {/* Opening Hours */}
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Otevírací Doba</h3>
-                    <p className="text-gray-600">
-                      Pondělí - Pátek: 8:00 - 18:00<br />
-                      Sobota: 9:00 - 14:00<br />
-                      Neděle: Zavřeno
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Email</h3>
+                  <p className="text-gray-600 text-lg">
+                    info@autonam.cz<br />
+                    servis@autonam.cz
+                  </p>
                 </div>
+              </div>
+            </div>
 
+            {/* Opening Hours */}
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Otevírací Doba</h3>
+                  <p className="text-gray-600 text-lg">
+                    Pondělí - Pátek: 8:00 - 18:00<br />
+                    Sobota: 9:00 - 14:00<br />
+                    Neděle: Zavřeno
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -172,13 +185,43 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="bg-gray-50 py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+      <section className="h-screen snap-start bg-white flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
             Kde Nás Najdete
           </h2>
           <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-            <p className="text-gray-600 text-lg">Zde bude mapa</p>
+            <div className="text-center">
+              <div className="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <p className="text-gray-600 text-lg">Zde bude mapa</p>
+              <p className="text-gray-500 mt-2">Václavská 123, Praha 1</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="h-screen snap-start bg-gray-900 text-white flex items-center justify-center">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Připraveni Pomoci?
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Kontaktujte nás ještě dnes a získejte bezplatnou konzultaci. 
+            Naše tým je připraven odpovědět na všechny vaše otázky.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-primary hover:bg-primary/80 text-white font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300">
+              Zavolejte Nám
+            </button>
+            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300">
+              Napište Email
+            </button>
           </div>
         </div>
       </section>

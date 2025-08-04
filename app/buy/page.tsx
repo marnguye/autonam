@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Navbar } from '@/components/Navbar'
 import { cars } from '../../data/cars'
 
 const formatPrice = (price: number) => price.toLocaleString('cs-CZ') + ' Kč';
@@ -33,8 +32,73 @@ export default function Page() {
   };
 
   return (
-    <div className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory overflow-hidden">
-      <Navbar />
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+      {/* Hero Section */}
+      <section className="h-screen snap-start bg-gradient-to-br from-gray-900 to-gray-800 text-white flex items-center justify-center">
+        <div className="max-w-7xl mx-auto text-center px-4">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            Naše Vozidla
+          </h1>
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Prohlédněte si naši exkluzivní nabídku vozidel. Každé auto prochází důkladnou kontrolou 
+            a je připraveno pro okamžitý prodej.
+          </p>
+          <div className="mt-12">
+            <button className="bg-primary hover:bg-primary/80 text-white font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300 mr-4">
+              Kontaktovat
+            </button>
+            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300">
+              Zjistit Více
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our Cars Section */}
+      <section className="h-screen snap-start bg-white flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
+            Proč Vybrat Naše Vozidla?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-2xl p-8 text-center">
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Důkladná Kontrola</h3>
+              <p className="text-gray-600">
+                Každé vozidlo prochází kompletní technickou kontrolou a servisním zásahem.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-8 text-center">
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Garance Kvality</h3>
+              <p className="text-gray-600">
+                Poskytujeme záruku na všechna vozidla a kompletní servisní podporu.
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-8 text-center">
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Rychlé Dodání</h3>
+              <p className="text-gray-600">
+                Vozidla jsou připravena k okamžitému převzetí s kompletní dokumentací.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Car Listings */}
       {cars.map((car, index) => {
         const isOpen = expanded === index;
         const currentImage = currentImageIndex[index] || 0;
@@ -98,8 +162,11 @@ export default function Page() {
                         {car.name}
                       </h1>
                       <div className="text-right">
-                        <div className="text-3xl lg:text-5xl font-bold text-red-400 mb-2">
+                        <div className="text-3xl lg:text-5xl font-bold text-white mb-2">
                           {formatPrice(car.price)}
+                        </div>
+                        <div className="text-lg text-gray-300">
+                          Rok: {car.year}
                         </div>
                       </div>
                     </div>
@@ -108,33 +175,33 @@ export default function Page() {
                     </p>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                       <div className="text-center">
-                        <div className="text-2xl lg:text-3xl font-bold text-red-400">
+                        <div className="text-2xl lg:text-3xl font-bold text-white">
                           {car.power}
                         </div>
                         <div className="text-sm text-gray-300">Výkon</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl lg:text-3xl font-bold text-red-400">
+                        <div className="text-2xl lg:text-3xl font-bold text-white">
                           {car.acceleration}
                         </div>
                         <div className="text-sm text-gray-300">0-100 km/h</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl lg:text-3xl font-bold text-red-400">
+                        <div className="text-2xl lg:text-3xl font-bold text-white">
                           {car.mileage}
                         </div>
                         <div className="text-sm text-gray-300">Najeto</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl lg:text-3xl font-bold text-red-400">
-                          {car.year}
+                        <div className="text-2xl lg:text-3xl font-bold text-white">
+                          {car.fuel}
                         </div>
-                        <div className="text-sm text-gray-300">Rok Výroby</div>
+                        <div className="text-sm text-gray-300">Palivo</div>
                       </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
                       <button
-                        className="flex-1 bg-red-600 text-white py-4 px-8 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors"
+                        className="flex-1 bg-primary text-white py-4 px-8 rounded-lg font-semibold text-lg hover:bg-primary/80 transition-colors"
                         onClick={() => setExpanded(isOpen ? null : index)}
                       >
                         {isOpen ? 'Skrýt Detaily' : 'Zobrazit Detaily'}
@@ -184,6 +251,27 @@ export default function Page() {
           </section>
         );
       })}
+
+      {/* CTA Section */}
+      <section className="h-screen snap-start bg-gray-900 text-white flex items-center justify-center">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Zajímá Vás Některé Vozidlo?
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Kontaktujte nás a získejte více informací o našich vozidlech. 
+            Jsme připraveni odpovědět na všechny vaše otázky.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-primary hover:bg-primary/80 text-white font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300">
+              Kontaktovat
+            </button>
+            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold py-4 px-8 text-lg rounded-lg transition-colors duration-300">
+              Zjistit Více
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
